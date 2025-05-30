@@ -1,0 +1,243 @@
+/* 1. Global box-sizing and font scaling */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* 2. Responsive containers */
+.service,
+.hero-container,
+.footer1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* 3. Responsive typography */
+h1, .service-txt, .footer-txt {
+  font-size: clamp(1.3rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+h2, .carousel-title, .service-txt2, .topchart-title {
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+}
+
+/* 4. Navbar (example, adjust as needed) */
+.navbar {
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-icon img {
+  width: 2rem;
+}
+
+/* 5. Hero section */
+.hero {
+  min-height: 60vh;
+  padding: 2rem 1rem;
+}
+.hero-container {
+  padding: 2rem 0;
+}
+
+/* 6. Carousel section */
+.carousel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0;
+}
+.carousel-wrapper {
+  max-width: 100vw;
+  overflow-x: auto;
+}
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.carousel-card,
+.video-split {
+  min-width: 90vw;
+  max-width: 90vw;
+  margin: 0 auto 2rem auto;
+  border-radius: 16px;
+}
+.carousel-card img,
+.carousel-card video,
+.video-split video {
+  width: 100%;
+  height: 34vw;
+  min-height: 160px;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #eee;
+}
+.video-split {
+  flex-direction: column;
+  height: auto;
+}
+.video-split-left,
+.video-split-right {
+  padding: 1rem;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  text-align: left;
+}
+@media (min-width: 700px) {
+  .carousel-section {
+    flex-direction: row;
+    gap: 40px;
+    padding: 40px 0;
+  }
+  .carousel-card,
+  .video-split {
+    min-width: 400px;
+    max-width: 400px;
+    margin: 0 20px;
+  }
+  .video-split {
+    flex-direction: row;
+    min-width: 700px;
+    max-width: 700px;
+    height: 240px;
+  }
+  .video-split-left,
+  .video-split-right {
+    padding: 24px;
+    font-size: 1.2rem;
+  }
+}
+
+/* 7. Accordion / Service section */
+.accordion-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  padding: 15px 0;
+  width: 100%;
+  cursor: pointer;
+}
+.acc-number {
+  flex: 0 0 50px;
+  text-align: right;
+  margin-right: 20px;
+  color: #fff;
+  font-size: 1.1em;
+}
+.acc-title {
+  flex: 1;
+  color: #fff;
+  font-size: 1.2em;
+}
+.arrow-down {
+  flex: 0 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s;
+}
+.accordion-btn.active .arrow-down {
+  transform: rotate(180deg);
+}
+.accordion-content {
+  display: none;
+  background: #181818;
+  padding: 1.2rem 0 1.2rem 1.2rem;
+  color: #fff;
+  font-size: 1.08em;
+  border-radius: 0 0 12px 12px;
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.accordion-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px 0;
+}
+@media (min-width: 600px) {
+  .accordion-grid {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 12px 36px;
+  }
+}
+.accordion-btn.active + .accordion-content {
+  display: block;
+}
+
+/* 8. Responsive hr */
+hr {
+  border: none;
+  width: 100%;
+  max-width: 42rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  margin: 0.5rem auto;
+}
+
+/* 9. Footer */
+.footer1 {
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.footer-txt {
+  padding: 24px 0 12px 0;
+  font-size: clamp(1.1rem, 3vw, 1.7rem);
+}
+.details-row1, .details-row2 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.5rem;
+}
+.left, .right {
+  width: 100%;
+  display: block;
+}
+.col-1, .col-2, .col-3 {
+  padding: 0 0 12px 0;
+}
+.copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .footer1 {
+    margin: 0 270px;
+  }
+  .details-row1, .details-row2 {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .left, .right {
+    width: 48%;
+    display: block;
+  }
+}
+
+/* 10. Utility: Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
